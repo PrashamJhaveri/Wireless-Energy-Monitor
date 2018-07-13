@@ -1,0 +1,115 @@
+--Declare libraries here
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+--Define entity here
+
+-- write other comments here such as last update
+entity FSM is
+ port (	
+	rx			:	in std_logic;
+	cmp15_s	:	in std_logic;
+	cmp7_n 	:  in std_logic;
+	cmp7_s	:  in std_logic;
+	reset		:	in std_logic;
+	clk		:	in	std_logic;
+	S_res 	: out std_logic;
+	Sh_en 	: out std_logic;
+	S_en 		: out std_logic;
+	n_en 		: out std_logic;
+	n_res 	: out std_logic
+	--b_en 		: out std_logic_vector --have not implemented b_en logic
+		);
+end entity FSM;
+
+--Define architecture here
+Architecture behavior of FSM is
+	type usart_states is (idle, start, data, stop);
+	signal CS, NS : usart_states:= idle;
+begin
+----------------------------
+--VHDL code for FSM
+----------------------------
+--state registers
+Synchronous_process: process (reset, clk)
+ begin
+	if reset = '1' then 
+	 CS <= idle;
+	elsif clk'event and clk = '1' then
+		CS <= NS;
+	end if;
+end process;
+------------------------------------
+NextState_logic: process (CS,rx, cmp15_s, cmp7_n, cmp7_s)
+ begin
+	case CS is
+		when idle =>
+			if rx = '0' then
+				NS <= start;
+			else
+				NS <= idle;
+			end if;
+		when start =>
+			if cmp7_s = '1' and rx = '1' then
+				NS <= idle;
+			elsif cmp7_s = '1' then
+				NS <= data;
+			else 
+				NS <= start;
+				end if;
+		when data =>
+			if cmp15_s = '1' and cmp7_n = '1' then 
+				NS <= stop;
+			else 
+				NS <= data;
+			end if;
+		when stop => 
+			if cmp15_s = '0' then 
+				NS <= stop;
+			else 
+				NS <= idle;
+			end if;
+	end case;
+ end process;
+-----------------------------------------
+Output_logic: process (CS, rx, cmp7_s, cmp15_s, cmp7_n)
+ begin
+	S_res <= '0';
+	s_en <= '0';
+	sh_en <= '0';
+	n_en <= '0';
+	n_res <= '0';
+	case CS is
+		when idle =>
+			if rx = '0' then
+				S_res <= '1';
+			else
+				S_res<= '0';
+			end if;
+		when start => 
+			if cmp7_s = '0' then
+				S_en <= '1';
+			else 
+				S_res <=	'1';
+				n_res <= '1';
+			end if;
+		when data =>
+			if cmp15_s = '0' then
+				s_en <= '1';
+			elsif cmp15_s = '1' and cmp7_n = '0' then 
+				s_res <= '1';
+				sh_en <= '1';
+				n_en <= '1';
+			elsif cmp15_s = '1' and cmp7_n = '1' then 
+				s_res <= '1';
+				sh_en <= '1';
+			end if;
+		when stop => 
+			if cmp15_s = '0' then 
+				s_en <= '1';
+			end if;
+	end case;
+ end process;
+ 
+end architecture;

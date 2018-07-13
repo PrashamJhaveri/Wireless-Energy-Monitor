@@ -1,0 +1,85 @@
+m255
+K3
+13
+cModel Technology
+Z0 dE:\new 209\Group29\VHDL Design\simulation\qsim
+vVHDL
+Z1 !s100 >Fng3BW@KPT8d3Rn34L3:2
+Z2 Ij?T<g>TcjlE@G<Tk0KGhG2
+Z3 VVKDVcJ7j9@4c61N^ab^]51
+Z4 dE:\new 209\Group29\VHDL Design\simulation\qsim
+Z5 w1505256176
+Z6 8VHDL.vo
+Z7 FVHDL.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|VHDL.vo|
+Z10 o-work work -O0
+Z11 n@v@h@d@l
+!i10b 1
+!s85 0
+Z12 !s108 1505256178.432000
+Z13 !s107 VHDL.vo|
+!s101 -O0
+vVHDL_vlg_check_tst
+!i10b 1
+Z14 !s100 [fY3A2cVH6iHNLAX:K=ZL2
+Z15 InCdJ2;P0FS<mDKm;RZHXB3
+Z16 V8AGBhbgElj_m9RBYe_LI22
+R4
+Z17 w1505256172
+Z18 8VHDL.vt
+Z19 FVHDL.vt
+L0 63
+R8
+r1
+!s85 0
+31
+Z20 !s108 1505256182.774000
+Z21 !s107 VHDL.vt|
+Z22 !s90 -work|work|VHDL.vt|
+!s101 -O0
+R10
+Z23 n@v@h@d@l_vlg_check_tst
+vVHDL_vlg_sample_tst
+!i10b 1
+Z24 !s100 02OOEj`LD`XeaW_eo:YzF0
+Z25 IaEOQl>7Z^e]oC9hc1_j7G0
+Z26 VCk_U;M_S[fmW]]dnEkSM=2
+R4
+R17
+R18
+R19
+L0 29
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z27 n@v@h@d@l_vlg_sample_tst
+vVHDL_vlg_vec_tst
+!i10b 1
+!s100 5k]@O4dgN[[VH<^WG9i@<1
+IX7f_F>8em5H9Qj8HG?:UU1
+Z28 VQWkEII?`I10obMbUXYHa;2
+R4
+R17
+R18
+R19
+Z29 L0 372
+R8
+r1
+!s85 0
+31
+R20
+R21
+R22
+!s101 -O0
+R10
+Z30 n@v@h@d@l_vlg_vec_tst

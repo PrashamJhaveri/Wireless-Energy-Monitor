@@ -1,0 +1,11 @@
+Fitter Status : Successful - Thu Oct 26 15:06:59 2017
+Quartus II 64-Bit Version : 13.0.0 Build 156 04/24/2013 SJ Full Version
+Revision Name : VHDL
+Top-level Entity Name : VHDL
+Family : MAX V
+Device : 5M570ZT100C5
+Timing Models : Final
+Total logic elements : 161 / 570 ( 28 % )
+Total pins : 16 / 74 ( 22 % )
+Total virtual pins : 0
+UFM blocks : 0 / 1 ( 0 % )
